@@ -16,7 +16,7 @@ public class Example01 {
     }
 
     private static void findFileWithJavaExtension() {
-        FileFilter fileFilter = (File file) -> file.getName().endsWith(".java");
+        FileFilter fileFilter = file -> file.getName().endsWith(".java");
         File dir = new File("c:/Projects/java8/src");
         File[] files = dir.listFiles(fileFilter);
 
@@ -40,7 +40,7 @@ public class Example01 {
 
     private static void sortCollectionOfStringsByLemgth() {
         List<String> listOfStrings = Arrays.asList("@@@", "@", "@@@@@", "@@@@");
-        Comparator<String> comparatorByLength = (String s1, String s2) -> Integer.compare(s1.length(), s2.length());
+        Comparator<String> comparatorByLength = (s1, s2) -> Integer.compare(s1.length(), s2.length());
         Collections.sort(listOfStrings, comparatorByLength);
         System.out.println(listOfStrings);
     }
