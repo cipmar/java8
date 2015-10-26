@@ -38,15 +38,17 @@ public class Example06 {
 
     private static List<Person> readPersons() throws IOException {
         InputStreamReader isr = new InputStreamReader(Person.class.getResourceAsStream("persons.txt"));
-        BufferedReader br = new BufferedReader(isr);
         List<Person> persons = new ArrayList<>();
-        Stream<String> stream = br.lines();
 
-        persons = stream.map(line -> {
-            String[] tokens = line.split(" ");
-            Person p = new Person(Integer.valueOf(tokens[1]), tokens[0]);
-            return p;
-        }).collect(Collectors.toList());
+        try (BufferedReader br = new BufferedReader(isr)) {
+            Stream<String> stream = br.lines();
+
+            persons = stream.map(line -> {
+                String[] tokens = line.split(" ");
+                Person p = new Person(Integer.valueOf(tokens[1]), tokens[0]);
+                return p;
+            }).collect(Collectors.toList());
+        }
 
         return persons;
     }
