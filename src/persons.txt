@@ -1,20 +1,30 @@
-John 23
-Mary 43
-Joe 26
-Mike 34
-Lily 36
-Anna 27
-Elsa 29
-Elisa 32
-Tom 25
-Lisa 42
-Alton 32
-Alvin 22
-Tad 25
-Jack 37
-Ian 42
-Ida 27
-Earl 22
-Cael 56
-Caesar 41
-Geaorge 19
+Alfie Marsh 20
+Blake Adams 20
+Nathan Kaur 41
+Andrew Jordan 32
+Louie Jordan 19
+Heath Harding 44
+Reuben Carrillo 21
+Angelo Boone 45
+Immanuel Emerson 38
+Kameron Taylor 23
+Quinn Cole 43
+Brice Patel 49
+Rene Stone 37
+Clem Graham 51
+Lesley Watts 34
+Carmen Levy 23
+Ali Berger 22
+Avery Potts 23
+Harper O'neill 26
+Jo Taylor 39
+Hollie Bailey 23
+Zara Cooke 37
+Ella Fisher 21
+Lexie Simpson 21
+Martha Morris 20
+Haylie Lawrence 45
+Leighton Peters 28
+Georgia Lindsay 33
+Lorelai Rojas 29
+Alexandria Vazquez 37
