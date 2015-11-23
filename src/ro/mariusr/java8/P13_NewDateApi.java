@@ -1,14 +1,15 @@
+package ro.mariusr.java8;
+
 import java.time.*;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
 /**
  * Created by mariusrop on 25.10.2015.
  */
-public class NewDateApi {
+public class P13_NewDateApi {
     public static void main(String[] args) throws InterruptedException {
-        // Instant is immutable!! an instant has nanoseconds precision
+        // Instant - an instantaneous point on the time-line - an instant has nanoseconds precision - immutable!!!
         Instant instant1 = Instant.now();
         Thread.sleep(100);
         Instant instant2 = Instant.now();
@@ -18,7 +19,7 @@ public class NewDateApi {
         Duration duration = Duration.between(instant1, instant2);
         System.out.println(duration.toMillis());
 
-        // localdate - a date with day precision
+        // LocalDate - a date with day precision - a date without a time-zone
         LocalDate ld = LocalDate.now();
         System.out.println(ld);
 
@@ -28,18 +29,19 @@ public class NewDateApi {
         System.out.println("I was born " + period.getYears() + " years ago");
         System.out.println("I was born " + dateOfBirth.until(LocalDate.now(), ChronoUnit.DAYS) + " days ago");
 
-        // ajusters
+        // adjusters
         LocalDate now = LocalDate.now();
         LocalDate nextSunday = now.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
         System.out.println("Next Sunday is on " + nextSunday);
 
-        // LocalTime
+        // LocalTime - a time without time-zone
         System.out.println(LocalTime.now());
 
         // time zones
         ZoneId.getAvailableZoneIds().stream().forEach(System.out::println);
+
+        // ZonedDateTime - a date-time with a time-zone
         ZonedDateTime zdt = ZonedDateTime.of(2009, 4, 2, 2, 3, 0, 0, ZoneId.of("Europe/London"));
         System.out.println(zdt.withZoneSameInstant(ZoneId.of("Europe/Bucharest")));
-
     }
 }

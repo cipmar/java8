@@ -1,3 +1,5 @@
+package ro.mariusr.java8;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,9 +12,14 @@ import java.util.stream.Stream;
  * Created by mariusrop on 27.10.2015.
  */
 public class Person {
+    private Integer index;
     private String firstName;
     private String lastName;
     private Integer age;
+
+    public Integer getIndex() {
+        return index;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -26,7 +33,8 @@ public class Person {
         return age;
     }
 
-    public Person(String firstName, String lastName, Integer age) {
+    public Person(Integer index, String firstName, String lastName, Integer age) {
+        this.index = index;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -39,14 +47,14 @@ public class Person {
 
     public static List<Person> readPersons() throws IOException {
         InputStreamReader isr = new InputStreamReader(Person.class.getResourceAsStream("persons.txt"));
-        List<Person> persons = new ArrayList<>();
+        List<Person> persons;
 
         try (BufferedReader br = new BufferedReader(isr)) {
             Stream<String> stream = br.lines();
 
             persons = stream.map(line -> {
                 String[] tokens = line.split(" ");
-                return new Person(tokens[0], tokens[1], Integer.valueOf(tokens[2]));
+                return new Person(Integer.valueOf(tokens[0]), tokens[1], tokens[2], Integer.valueOf(tokens[3]));
             }).collect(Collectors.toList());
         }
 
@@ -54,6 +62,6 @@ public class Person {
     }
 
     public static Person placeholder() {
-        return new Person("<placeholder>", "", 0);
+        return new Person(Integer.MAX_VALUE, "<placeholder>", "", 0);
     }
 }
