@@ -31,5 +31,12 @@ public class P12_Optionals {
 
         // ifPresent
         stringOptional.ifPresent(str -> System.out.println(str));
+
+        // equals
+        System.out.println(Optional.of(1).equals(Optional.of(1)));      // equality between values
+        System.out.println(Optional.of(1).equals(Optional.of(2)));      // equality between values
+        System.out.println(Optional.of(1).equals(Optional.empty()));    // one empty, one contains a value -> false
+        System.out.println(Optional.empty().equals(Optional.empty()));  // both are empty -> true
+        System.out.println(Optional.empty().equals(new Object()));      // one optional, the other another object -> false
     }
 }
